@@ -149,10 +149,8 @@ var typeHandler = {
       });
     });
 
-    console.log(dailyData.reverse());
-
     chartConfigs.dataSource.data = response.map(el => ({
-      label: dayjs(new Date(el.week * 1000)).format('DD-MM-YYYY'),
+      label: dayjs(el.week * 1000).format('DD-MM-YYYY'),
       value: el.total
     }));
 
