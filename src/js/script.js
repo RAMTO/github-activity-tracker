@@ -134,6 +134,23 @@ var typeHandler = {
     console.log('Handle contributors');
   },
   '/stats/commit_activity': function(response) {
+    // Daily commits
+    var dailyData = [];
+
+    response.forEach(el => {
+      var weekData = el.days;
+
+      weekData.forEach((elInner, index) => {
+        var innerWeek = el.week * 1000 + index * 86400;
+        dailyData.push({
+          label: dayjs(innerWeek).format('DD-MM-YYYY'),
+          value: elInner
+        });
+      });
+    });
+
+    console.log(dailyData.reverse());
+
     chartConfigs.dataSource.data = response.map(el => ({
       label: dayjs(new Date(el.week * 1000)).format('DD-MM-YYYY'),
       value: el.total
