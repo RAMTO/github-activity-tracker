@@ -14,7 +14,7 @@
     "@babel/core": "7.5.5",
     "@babel/plugin-transform-classes": "7.5.5",
     "@babel/preset-env": "7.5.5",
-    "@fortawesome/fontawesome-pro": "^5.10.0",
+    "@fortawesome/fontawesome-free": "^5.10.0",
     "babel-plugin-transform-class-constructor-call": "6.24.1",
     "grunt": "1.0.3",
     "grunt-autoprefixer": "3.0.4",
