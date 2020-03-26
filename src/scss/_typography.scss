@@ -1,0 +1,73 @@
+// Fonts
+@font-face {
+  font-family: "Google Sans";
+  src: url("../fonts/googlesans-bold-webfont.woff2") format("woff2"),
+    url("../fonts/googlesans-bold-webfont.woff") format("woff");
+  font-display: swap;
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: "Google Sans";
+  src: url("../fonts/googlesans-medium-webfont.woff2") format("woff2"),
+    url("../fonts/googlesans-medium-webfont.woff") format("woff");
+  font-display: swap;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Google Sans";
+  src: url("../fonts/googlesans-regular-webfont.woff2") format("woff2"),
+    url("../fonts/googlesans-regular-webfont.woff") format("woff");
+  font-display: swap;
+  font-weight: 400;
+}
+
+// Classes
+@each $size in map-keys($texts) {
+  .text-#{$size} {
+    @include text;
+    font-size: texts-deep-get($texts, $size, "default", "font-size");
+    line-height: texts-deep-get($texts, $size, "default", "line-height");
+
+    @include media-breakpoint-up(md) {
+      font-size: texts-deep-get($texts, $size, "md", "font-size");
+      line-height: texts-deep-get($texts, $size, "md", "line-height");
+    }
+  }
+}
+
+// Color styles
+@each $color, $value in $custom-theme-colors {
+  @include text-emphasis-variant(".text-#{$color}", $value);
+}
+
+// Custom styles
+.text-bold {
+  font-weight: 700;
+}
+
+// Links
+.link {
+  @include custom-underline($body-color);
+
+  color: $body-color;
+  text-decoration: none;
+
+  &:hover {
+    color: $body-color;
+    text-decoration: none;
+  }
+}
+
+.link-primary {
+  @include custom-underline($primary);
+
+  color: $primary;
+  text-decoration: none;
+
+  &:hover {
+    color: $primary;
+    text-decoration: none;
+  }
+}

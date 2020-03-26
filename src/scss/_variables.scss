@@ -1,0 +1,241 @@
+// Colors
+$greenergy:             purple;
+$money-green:           #00aa6e;
+$business-blue:         #4c84ff;
+$darkish-pink:          #e24358;
+$pale-orange:           #ffb75d;
+
+$dark:                  #33343e;
+$white:                 #ffffff;
+
+$slate:                 #5b6573;
+$grey:                  #858c9a;
+$steel:                 #c8ccd4;
+$pale:                  #eceff2;
+$snow:                  #f9fbfd;
+
+$primary:               $greenergy;
+$secondary:             $grey;
+$success:               $money-green;
+$danger:                $darkish-pink;
+$warning:               $pale-orange;
+$info:                  $business-blue;
+$light:                 $grey;
+
+// Add custom colors to theme-colors map
+$theme-colors: (
+);
+
+// Used for generating background and typography helper classes
+$custom-theme-colors: (
+  success: $success,
+  danger: $danger,
+  warning: $warning,
+  info: $info,
+  slate: $slate,
+  grey: $grey,
+  steel: $steel,
+  pale: $pale,
+  snow: $snow
+);
+
+// Used for generating buttons classes
+$btn-colors: (
+  primary: $primary,
+  secondary: $secondary
+);
+
+// Typography
+$font-family-primary: 'Google Sans', Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+
+$body-color:                  $dark;
+
+$font-size-base:              1rem;
+$font-family-base:            $font-family-primary;
+$line-height-base:            1.5;
+$small-font-size:             14px;
+
+$texts: (
+  hero: (
+    default: (
+      font-size:    48px,
+      line-height:  1.3
+    ),
+    md: (
+      font-size:    72px,
+      line-height:  1.20
+    )
+  ),
+  mega: (
+    default: (
+      font-size:    36px,
+      line-height:  1.40
+    ),
+    md: (
+      font-size:    48px,
+      line-height:  1.25
+    )
+  ),
+  display: (
+    default: (
+      font-size:    28px,
+      line-height:  1.45
+    ),
+    md: (
+      font-size:    36px,
+      line-height:  1.40
+    )
+  ),
+  headline: (
+    default: (
+      font-size:    20px,
+      line-height:  1.45
+    ),
+    md: (
+      font-size:    24px,
+      line-height:  1.45
+    )
+  ),
+  title: (
+    default: (
+      font-size:    19px,
+      line-height:  1.45
+    ),
+    md: (
+      font-size:    20px,
+      line-height:  1.45
+    )
+  ),
+  subheader: (
+    default: (
+      font-size:    16px,
+      line-height:  1.45
+    ),
+    md: (
+      font-size:    18px,
+      line-height:  1.45
+    )
+  ),
+  lead: (
+    default: (
+      font-size:    16px,
+      line-height:  1.63
+    ),
+    md: (
+      font-size:    18px,
+      line-height:  1.44
+    )
+  ),
+  main: (
+    default: (
+      font-size:    16px,
+      line-height:  1.63
+    ),
+    md: (
+      font-size:    16px,
+      line-height:  1.63
+    )
+  ),
+  small: (
+    default: (
+      font-size:    14px,
+      line-height:  1.45
+    ),
+    md: (
+      font-size:    14px,
+      line-height:  1.45
+    )
+  )
+);
+
+// Spacers
+$spacer:            1rem;
+
+$spacers: (
+  0: 0,
+  1: ($spacer * .125),  // 2px
+  2: ($spacer * .25),   // 4px
+  3: ($spacer * .5),    // 8px
+  4: $spacer,           // 16px
+  5: ($spacer * 1.5),   // 24px
+  6: ($spacer * 2),     // 32px
+  7: ($spacer * 2.5),   // 40px
+  8: ($spacer * 3),     // 48px
+  9: ($spacer * 3.5),   // 56px
+  10: ($spacer * 4),    // 64px
+  11: ($spacer * 4.5),  // 72px
+  12: ($spacer * 5),    // 80px
+  13: ($spacer * 5.5),  // 88px
+  14: ($spacer * 6),    // 96px
+  15: ($spacer * 6.5),  // 104px
+  // 16: ($spacer * 7),    // 112px
+  // 17: ($spacer * 7.5),  // 120px
+  // 18: ($spacer * 8),    // 128px
+  // 19: ($spacer * 8.5),  // 136px
+  // 20: ($spacer * 9),    // 144px
+  // 21: ($spacer * 9.5),  // 162px
+  // 22: ($spacer * 10),   // 160px
+  // 23: ($spacer * 10.5), // 168px
+  // 24: ($spacer * 11),   // 176px
+  // 25: ($spacer * 11.5), // 184px
+  // 26: ($spacer * 12),   // 192px
+  // 27: ($spacer * 12.5), // 200px
+  // 28: ($spacer * 13),   // 208px
+  // 29: ($spacer * 13.5), // 216px
+  // 30: ($spacer * 14)    // 224px
+);
+
+// Grid
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1280px,
+  mg: 1600px
+);
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1128px,
+  mg: 1440px
+);
+
+$grid-gutter-width:               24px;
+
+// UI
+$border-radius:                   3px;
+$enable-validation-icons:         false;
+
+// Buttons
+$btn-padding-y-lg:                10px;
+$btn-padding-x-lg:                32px;
+$btn-padding-y:                   8px;
+$btn-padding-x:                   32px;
+$btn-padding-y-sm:                6px;
+$btn-padding-x-sm:                16px;
+$btn-line-height:                 1.5;
+$btn-font-weight:                 400;
+$btn-font-size:                   16px;
+$btn-border-radius:               $border-radius;
+$btn-transition:                  color .15s linear, background-color .15s linear, border-color .15s linear, box-shadow .15s linear;
+// Atomus custom btn variables
+$btn-color:                       $white;
+$btn-color-hover:                 $white;
+$btn-outline-color-hover:         $white;
+
+// Forms
+$input-color:                     $dark;
+$input-border-color:              $grey;
+$input-focus-border-color:        $primary;
+$input-focus-box-shadow:          0 0 0 1px $primary;
+$input-height:                    auto;
+$input-line-height:               1.5;
+$input-placeholder-color:         $grey;
+
+// Custom selects
+$custom-select-line-height:       1.5;
+$custom-select-height:            auto;
+$custom-select-focus-box-shadow:  0 0 0 1px $primary;

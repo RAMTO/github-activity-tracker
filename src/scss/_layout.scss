@@ -1,0 +1,81 @@
+// Base & resets
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+strong {
+  font-weight: 700;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+hr {
+  margin: 0;
+  border: 0;
+  height: 1px;
+  background-color: $steel;
+}
+
+// Helpers
+.text-overflow {
+  @include text-overflow;
+}
+
+.ws-no-wrap {
+  white-space: nowrap;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+// Backgrounds
+@each $color, $value in $custom-theme-colors {
+  @include bg-variant(".bg-#{$color}", $value);
+}
+
+// Containers
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main {
+  flex: 1 0 100%;
+}
+
+.container {
+  padding-left: 16px;
+  padding-right: 16px;
+
+  @include media-breakpoint-up(sm) {
+    padding: 0;
+  }
+}
+
+// Sections
+.section {
+  overflow: hidden;
+}

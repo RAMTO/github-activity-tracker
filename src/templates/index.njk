@@ -1,0 +1,73 @@
+{% set pageCanonical = "" %}
+{% set pageClass = "page-default" %}
+{% set pageTitle = "GitHub Activity Tracker" %}
+{% set pageDescription = "GitHub Activity Tracker" %}
+{% set pageKeywords = "GitHub Activity Tracker" %}
+
+{% extends "partials/_layout.njk" %}
+
+{% block content %}
+
+<section class="py-5 py-lg-7">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h1 class="text-display mb-5">GitHub Activity Tracker</h1>
+      </div>
+    </div>
+
+    <div class="row mb-4">
+      <div class="col-md-4 mb-4 mb-md-0">
+        <label for="">Repository:</label>
+        <div class="custom-select-wrapper">
+          <select name="" id="selectRepository" class="form-control custom-select">
+            <option value="aeternity/aeternity">https://github.com/aeternity/aeternity</option>
+            <option value="bitcoincashorg/bitcoincash.org">https://github.com/bitcoincashorg/bitcoincash.org</option>
+            <option value="twbs/bootstrap">https://github.com/twbs/bootstrap</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4 mb-md-0">
+        <label for="">Stats:</label>
+        <div class="custom-select-wrapper">
+          <select name="" id="selectParams" class="form-control custom-select">
+            <option value="/commits">Daily Commits</option>
+            <!-- <option value="/stats/contributors">Contributors</option> -->
+            <option value="/stats/commit_activity">Weekly Commits</option>
+            <!-- <option value="/stats/participation">Participation</option> -->
+            <!-- <option value="/stats/punch_card">Commits per hour</option> -->
+          </select>
+        </div>
+      </div>
+
+      <div id="containerDate" class="col-md-4">
+        <label for="">Date:</label>
+        <div class="d-flex">
+          <div class="custom-select-wrapper flex-1 mr-3">
+            <select class="form-control custom-select" name="" id="selectUntilSince">
+              <option value="until">Until</option>
+              <option value="since">Since</option>
+            </select>
+          </div>
+          <div class="flex-2">
+            <input class="form-control" type="text" id="inputDatepicker" data-position="left top">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex align-items-center mb-4">
+      <button id="buttonFetchData" class="btn btn-primary">
+        Show data
+      </button>
+      <i id="fetchDataLoader" class="fas fa-circle-notch fa-spin ml-3 d-none"></i>
+    </div>
+
+    <div id="chartContainer" class="mb-4"></div>
+    <div id="tableContainer"></div>
+
+  </div>
+</section>
+
+{% endblock %}
