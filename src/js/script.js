@@ -147,47 +147,51 @@ var typeHandler = {
     // Weekly table
     var tableRows = response
       .reverse()
-      .map(
-        (el, index) => `
-    <tr>
-      <td class="cell-numeric">${dayjs(el.week * 1000).format(
-        'DD MMMM YYYY'
-      )}</td>
-      <td class="text-right cell-numeric">${el.days[0]}</td>
-      <td class="text-right cell-numeric">${el.days[1]}</td>
-      <td class="text-right cell-numeric">${el.days[2]}</td>
-      <td class="text-right cell-numeric">${el.days[3]}</td>
-      <td class="text-right cell-numeric">${el.days[4]}</td>
-      <td class="text-right cell-numeric">${el.days[5]}</td>
-      <td class="text-right cell-numeric">${el.days[6]}</td>
-      <td class="text-right cell-numeric text-bold ${
-        response[index + 1]
-          ? el.total >
-            response[index + 1].total * (percentage / 100) +
-              response[index + 1].total
-            ? 'text-success'
-            : el.total <
-              response[index + 1].total -
-                response[index + 1].total * (percentage / 100)
-            ? 'text-danger'
-            : ''
-          : ''
-      }"><span ${
-          response[index + 1]
-            ? el.total >
-              response[index + 1].total * (percentage / 100) +
-                response[index + 1].total
-              ? `data-toggle="tooltip" data-placement="top" title="More than ${percentage}% increase"`
-              : el.total <
-                response[index + 1].total -
-                  response[index + 1].total * (percentage / 100)
-              ? `data-toggle="tooltip" data-placement="top" title="More than ${percentage}% decrease"`
-              : ''
-            : ''
-        }>${el.total}</span></td>
-    </tr>
-    `
-      )
+      .map((el, index) => {
+        var cellClass = '';
+        var totalTooltip = '';
+
+        var prevElement = response[index + 1];
+
+        if (prevElement) {
+          var hasIncrease =
+            el.total >
+            prevElement.total * (percentage / 100) + prevElement.total;
+          var hasDecrease =
+            el.total <
+            prevElement.total - prevElement.total * (percentage / 100);
+
+          if (hasIncrease) {
+            cellClass = 'text-success';
+            totalTooltip = `data-toggle="tooltip" data-placement="top" title="More than ${percentage}% increase"`;
+          }
+
+          if (hasDecrease) {
+            cellClass = 'text-danger';
+            totalTooltip = `data-toggle="tooltip" data-placement="top" title="More than ${percentage}% decrease"`;
+          }
+        }
+
+        return `
+          <tr>
+            <td class="cell-numeric">${dayjs(el.week * 1000).format(
+              'DD MMMM YYYY'
+            )}</td>
+            <td class="text-right cell-numeric">${el.days[0]}</td>
+            <td class="text-right cell-numeric">${el.days[1]}</td>
+            <td class="text-right cell-numeric">${el.days[2]}</td>
+            <td class="text-right cell-numeric">${el.days[3]}</td>
+            <td class="text-right cell-numeric">${el.days[4]}</td>
+            <td class="text-right cell-numeric">${el.days[5]}</td>
+            <td class="text-right cell-numeric">${el.days[6]}</td>
+            <td class="text-right cell-numeric text-bold ${cellClass}">
+              <span ${totalTooltip}>
+                ${el.total}
+              </span>
+            </td>
+          </tr>
+        `;
+      })
       .join('');
 
     var tableWeeklyCommits = `
